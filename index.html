@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/public/css/style.css">
+    <link rel="stylesheet" href="./src/public/css/all.min.css">
+</head>
+
+<body>
+    <section class="banner">
+        <header>
+            <div class="container">
+                <nav class="navBar d-flex justify-between">
+                    <div class="logoImg">
+                        <img src="./src/public/img/logo.png" alt="">
+                    </div>
+                    <div class="navBarItems ">
+                        <ul type="none" class="d-flex justify-between largeNav">
+                            <li onclick="GotoHome()">Home</li>
+                            <li onclick="GotoAbout()">About</li>
+                            <li onclick="GotoCart()">Cart</li>
+                            <li class="dropDown" id="user"> <i class="fa-regular fa-user"> </i> User Name
+                                <div class="dropDown-Items">
+                                    <ul type="none">
+                                        <li><i class="fa-solid fa-right-to-bracket"></i> Login</li>
+                                        <li><i class="fa-regular fa-address-card"></i> Register</li>
+                                        <li><i class="fa-solid fa-gear"></i> setting</li>
+                                        <li><i class="fa-solid fa-right-from-bracket"></i> logout</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="navBarItemsSmall ">
+                            <span><i class="fa-solid fa-bars"></i></span>
+                            <ul type="none" class="smallDropDownItem">
+                                <li onclick="GotoHome()">Home</li>
+                                <li onclick="GotoAbout()">About</li>
+                                <li onclick="GotoCart()">Cart</li>
+                                <li class="dropDown" id="user"> <i class="fa-regular fa-user"> </i> User Name
+                                    <div class="dropDown-Items">
+                                        <ul type="none">
+                                            <li><i class="fa-solid fa-right-to-bracket"></i> Login</li>
+                                            <li><i class="fa-regular fa-address-card"></i> Register</li>
+                                            <li><i class="fa-solid fa-gear"></i> setting</li>
+                                            <li><i class="fa-solid fa-right-from-bracket"></i> logout</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container d-flex justify-center">
+            <div class="banner-Image">
+                <div class="banner-Content">
+                    <p class="banner-offer">Exclusive offer <span class="banner-discount">30% Off</span></p>
+                    <h1 class="banne-Heading"> STAY HOME & DELIVERED YOUR DAILY NEEDS</h1>
+                    <p class="banner-content">Vegetables contain many vitamins and minerals that are good for your
+                        health.</p>
+                    <button class="banner-btn">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="categorySection">
+        <div class="container">
+            <div class="category-header">
+                <p class="cat-title"><span class="cat-icon"><img src="./src/public/img/cat-icon.png"
+                            width="20px"></span> Categories</p>
+                <h2 class="cat-head">Browse by Category</h2>
+            </div>
+            <div class="category-icons d-flex flex-wrap">
+                <div class="cat-card">
+                    <img src="./src/public/img/beverage.svg" alt="">
+                    <img src="./src/public/img/vegetable.svg" alt="">
+                    <img src="./src/public/img/breakfast.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src="./src/public/js/product.js"></script>
+
+</html>

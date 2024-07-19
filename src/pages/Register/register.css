@@ -23,12 +23,12 @@
 
 .register-head {
     font-size: calc(35px + 10*(100vw - 320px) / 1600);
-    color: var(--font-primary-Color);
+    color: #292930;
 }
 
 .register-title {
     font-size: calc(15px + 5*(100vw - 320px) / 1600);
-    color: var(--font-secondary);
+    color: #777777;
 }
 
 .register-form {
@@ -64,12 +64,12 @@
     background-color: #00aaff;
     color: #fff;
     font-weight: 600;
-    font-size: var(--fs-15px);
+    font-size: 15px
 }
 
 .error {
     color: red;
-    font-size: var(--fs-15px);
+    font-size: 15px;
     padding: 7px 0 0 0;
 }
 

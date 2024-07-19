@@ -5,6 +5,7 @@
         "offerPrice": "99",
         "price": "130",
         "weight" : "1 kg",
+        "category" : "Snacks",
         "img": "./src/public/img/p1.png"
     },
     {
@@ -13,6 +14,7 @@
         "offerPrice": "79",
         "price": "100",
         "weight" : "50 g",
+        "category" : "Beverage",
         "img": "./src/public/img/p29.png"
     },
     {
@@ -21,14 +23,16 @@
         "offerPrice": "149",
         "price": "180",
         "weight" : "600 g",
+        "category" : "Snacks",
         "img": "./src/public/img/p31.png"
     },
     {
         "id": 4,
-        "name": "SnackAmor Combo Pack of Jowar Stick and Jowar Chips",
+        "name": "Jowar Stick and Jowar Chips",
         "offerPrice": "29",
         "price": "40",
         "weight" : "40 g",
+        "category" : "Snacks",
         "img": "./src/public/img/p32.png"
     },
     {
@@ -37,6 +41,7 @@
         "offerPrice": "79",
         "price": "80",
         "weight" : "100 g",
+        "category" : "Snacks",
         "img": "./src/public/img/p28.png"
     },
     {
@@ -45,6 +50,7 @@
         "offerPrice": "149",
         "price": "180",
         "weight" : "1 kg",
+        "category" : "Beans",
         "img": "./src/public/img/p33.png"
     },
     {
@@ -53,6 +59,7 @@
         "offerPrice": "79",
         "price": "100",
         "weight" : "1 L",
+        "category" : "Dairy_Product",
         "img": "./src/public/img/p2.png"
     },
     {
@@ -61,6 +68,7 @@
         "offerPrice": "199",
         "price": "250",
         "weight" : "50 g",
+        "category" : "Beverage",
         "img": "./src/public/img/p7.png"
     },
     {
@@ -69,6 +77,7 @@
         "offerPrice": "49",
         "price": "60",
         "weight" : "500 g",
+        "category" : "Bakery_Product",
         "img": "./src/public/img/p8.png"
     },
     {
@@ -77,6 +86,7 @@
         "offerPrice": "19",
         "price": "25",
         "weight" : "1 kg",
+        "category" : "Vegetables",
         "img": "./src/public/img/p8.png"
     },
     {
@@ -85,15 +95,8 @@
         "offerPrice": "99",
         "price": "150",
         "weight" : "1 L",
+        "category" : "Vegetables",
         "img": "./src/public/img/p16.png"
-    },
-    {
-        "id": 12,
-        "name": "TufBest Farms Mong Dal",
-        "offerPrice": "125",
-        "price": "145",
-        "weight" : "1 kg",
-        "img": "./src/public/img/p18.png"
     },
     {
         "id": 13,
@@ -101,6 +104,7 @@
         "offerPrice": "49",
         "price": "70",
         "weight" : "1 kg",
+        "category" : "Vegetables",
         "img": "./src/public/img/p27.png"
     },
     {
@@ -109,23 +113,8 @@
         "offerPrice": "120",
         "price": "150",
         "weight" : "160 ml",
+        "category" : "Beverage",
         "img": "./src/public/img/p19.png"
-    },
-    {
-        "id": 15,
-        "name": "Organic Jam",
-        "offerPrice": "150",
-        "price": "190",
-        "weight" : "150 g",
-        "img": "./src/public/img/p15.png"
-    },
-    {
-        "id": 16,
-        "name": "Good Life Raw Peanuts",
-        "offerPrice": "160",
-        "price": "200",
-        "weight" : "500 g",
-        "img": "./src/public/img/p17.png"
     },
     {
         "id": 17,
@@ -133,30 +122,16 @@
         "offerPrice": "449",
         "price": "500",
         "weight" : "500 g",
+        "category" : "Dairy_Product",
         "img": "./src/public/img/p13.png"
     },
     {
-        "id": 18,
-        "name": "Tuffets Britannia Cheezza",
-        "offerPrice": "449",
-        "price": "500",
-        "weight" : "500 g",
-        "img": "./src/public/img/p13.png"
-    },
-    {
-        "id": 19,
-        "name": "Good Life Walnut Kernels",
-        "offerPrice": "199",
-        "price": "250",
-        "weight" : "200 g",
-        "img": "./src/public/img/p25.png"
-    },
-    {
-        "id": 20,
+        "id": 17,
         "name": "Long Life Toned Milk",
         "offerPrice": "99",
         "price": "150",
         "weight" : "1 L",
+        "category" : "Dairy_Product",
         "img": "./src/public/img/p14.png"
     }
 ]

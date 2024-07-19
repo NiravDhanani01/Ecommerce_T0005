@@ -12,16 +12,15 @@ function LoginUser(event) {
     emailChecker();
     passwordChecker();
 
-    obj = {
-        email,password
-    }
+ 
 
-    let validUser = userData.some((item)=>{
+    let validUser = userData.find((item)=>{
         return item.email === email && item.password === password
     })
+  
     if (isemail == true && ispassword == true) {
        if(validUser){
-        localStorage.setItem("login",JSON.stringify(obj))
+        localStorage.setItem("login",JSON.stringify(validUser))
         loginError.innerText = ""
         location.href ="../../../index.html"
     } else {

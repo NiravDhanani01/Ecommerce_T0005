@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="./src/public/img/leaves.png">
+    <link rel="stylesheet" href="./src/public/css/style.css">
+    <link rel="stylesheet" href="./src/public/css/all.min.css">
+</head>
+
+<body>
+    <section class="banner">
+        <header>
+            <div class="container">
+                <nav class="navBar d-flex justify-between">
+                    <div class="logoImg">
+                        <img src="./src/public/img/logo.png" alt="">
+                    </div>
+                    <div class="navBarItems ">
+                        <ul type="none" class="d-flex justify-between largeNav">
+                            <li onclick="GotoHome()">Home</li>
+                            <li onclick="GotoProduct()">Product</li>
+                            <li onclick="GotoCart()">Cart <i class="fa-solid fa-cart-shopping"></i></li>
+                            <li class="dropDown"> <i class="fa-regular fa-user"> </i><span id="userName"> User
+                                    Name</span>
+                                <div class="dropDown-Items">
+                                    <ul type="none">
+                                        <li onclick="GotoLoginPage()" id="loginUser"><i
+                                                class="fa-solid fa-right-to-bracket"></i> Login</li>
+                                        <li onclick="GotouserSellting()" id="ResetPassword"><i
+                                                class="fa-solid fa-gear"></i> Reset Password</li>
+                                        <li onclick="LogoutUser()" id="logout"><i
+                                                class="fa-solid fa-right-from-bracket"></i> logout
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container d-flex justify-center">
+            <div class="banner-Image">
+                <div class="banner-Content">
+                    <p class="banner-offer">Exclusive offer <span class="banner-discount">30% Off</span></p>
+                    <h1 class="banne-Heading"> STAY HOME & DELIVERED YOUR DAILY NEEDS</h1>
+                    <p class="banner-content">Vegetables contain many vitamins and minerals that are good for your
+                        health.</p>
+                    <button class="banner-btn">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="categorySection">
+        <div class="container">
+            <div class="category-header">
+                <p class="cat-title"><span class="cat-icon"><img src="./src/public/img/cat-icon.png"
+                            width="25px"></span> Categories</p>
+                <h2 class="cat-head">Browse by Category</h2>
+            </div>
+            <div class="category-icons d-flex flex-wrap justify-center">
+                <div class="cat-card" onclick="categoryFilter(id)" id="Beverage">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <h3 class="cat-card-title">Beverage</h3>
+                </div>
+                <div class="cat-card" onclick="categoryFilter(id)" id="Snacks">
+                    <i class="fa-solid fa-cookie-bite"></i>
+                    <h3 class="cat-card-title">Snacks</h3>
+                </div>
+                <div class="cat-card" onclick="categoryFilter(id)" id="Dairy_Product">
+                    <i class="fa-solid fa-cow"></i>
+                    <h3 class="cat-card-title">Dairy Product</h3>
+                </div>
+                <div class="cat-card" onclick="categoryFilter(id)" id="Vegetables">
+                    <i class="fa-solid fa-carrot"></i>
+                    <h3 class="cat-card-title">Vegetables</h3>
+                </div>
+                <div class="cat-card" onclick="categoryFilter(id)" id="Bakery">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <h3 class="cat-card-title">Bakery</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product-Section">
+        <div class="container">
+            <div class="our-products">
+                <div class="product-header">
+                    <p class="product-title"><span class="product-icon"> <img src="./src/public/img/grocery.png"
+                                width="25px" alt=""></span> Products</p>
+                    <h2 class="product-header">Our Best Products</h2>
+                </div>
+                <div class="product-list d-flex flex-wrap justify-center" id="productCard">
+                </div>
+                <div class="d-flex justify-center">
+                    <button class="showBtn" onclick="GotoProduct()">show All product</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-heding">
+                <div class="test-title d-flex">
+                    <span class="quot"><i class="fa-solid fa-quote-left"> </i></span>
+                    <p class="test-title01"> Testimonials </p>
+                </div>
+                <h3 class="testi-head">Users Feedback</h3>
+            </div>
+            <div class="user-feedback d-flex flex-wrap justify-center">
+                <div class="review">
+                    <div class="useCard">
+                        <q>It is the best company has the customer relations about any details of package. In any case,
+                            they are really willing to solve the problem. There are lots of food variety compare to
+                            other websites, which is great. We had a quick delivery and good package as well.</q>
+                        <img src="./src/public/img/arrow.png" width="25px" alt="">
+                    </div>
+                    <div class="user d-flex">
+                        <img src="./src/public/img/women.jpg" alt="">
+                        <div class="reviewerName">
+                            <p class="userName">Tina Mcdonnale</p>
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /////// -->
+                <div class="review">
+                    <div class="useCard">
+                        <q>I have ordered from Best Grocery on ten occasions now and I am always impressed by the care
+                            with which each item is packed, neatly arranged in the box and always a joy and a treat to
+                            open. Everything has always been fresh</q>
+                        <img src="./src/public/img/arrow.png" width="25px" alt="">
+                    </div>
+                    <div class="user d-flex">
+                        <img src="./src/public/img/man4.jpg" alt="">
+                        <div class="reviewerName">
+                            <p class="userName">James C. Anderson</p>
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /////// -->
+                <div class="review">
+                    <div class="useCard">
+                        <q>It's not called Best grocery for nothing. I've been shopping from them for a few years now
+                            and there is always good availability, fast delivery and most often the cheapest prices
+                            compared to other online sites selling Turkish products</q>
+                        <img src="./src/public/img/arrow.png" width="25px" alt="">
+                    </div>
+                    <div class="user d-flex">
+                        <img src="./src/public/img/women1.jpg" alt="">
+                        <div class="reviewerName">
+                            <p class="userName">Ronda bern</p>
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="fotter-section">
+        <div class="container">
+            <footer>
+                <div class="footer-details d-flex flex-wrap justify-between">
+                    <div class="footer-one">
+                        <div class="footlogo">
+                            <img src="./src/public/img/logo.png" width="200px" alt="">
+                            <p class="endText">
+                                We are a friendly bar serving a variety of cocktails, wines and beers. Our bar is a
+                                perfect place for a couple.
+                            </p>
+                            <div class="d-flex">
+                                <span class="homeicon"><i class="fa-solid fa-house"></i></span>
+                                <p class="companyAddress"> 685 Market Street,
+                                    Las Vegas, LA 95820,
+                                    United States.</p>
+                            </div>
+                            <div class="d-flex">
+                                <span class="homeicon"><i class="fa-solid fa-phone"></i></span>
+                                <p class="companyAddress"> (+01) 850-315-5862</p>
+                            </div>
+                            <div class="d-flex">
+                                <span class="homeicon"><i class="fa-solid fa-envelope"></i></span>
+                                <p class="companyAddress"> example@domain.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-two d-flex justify-center">
+                        <div>
+                            <h3>Pages</h3>
+                            <ul type="none">
+                                <li class="page-link" onclick="GotoHome()">Home</li>
+                                <li class="page-link" onclick="GotoProduct()">Product</li>
+                                <li class="page-link" onclick="GotoCart()">Cart</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-three">
+                        <h3>Download App</h3>
+                        <p>Save Upto 10% With App & New User only</p>
+                        <div class="d-flex justify-center Qr">
+                            <img src="./src/public/img/qr.png" alt="">
+                            <div class="playStore">
+                                <div><img src="./src/public/img/appstore.svg" alt=""></div>
+                                <div><img src="./src/public/img/playstore.svg" alt=""></div>
+                            </div>
+                        </div>
+                        <h4 class="connected">Stay connected </h4>
+                        <div class="social-icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-x-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-pinterest-p"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="endnotes">
+                    <h4 class="text-center">copyRights &#169;</h4>
+                </div>
+            </footer>
+        </div>
+    </section>
+</body>
+<script src="./src/public/js/index.js"></script>
+
+</html>

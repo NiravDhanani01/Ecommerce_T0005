@@ -18,41 +18,42 @@
                     <div class="login-form">
                         <form action="" onsubmit="LoginUser(event)" class="emilvalidator">
                             <div class="form-control">
-                                    <label for="name">Enter Email Address : </label>
-                                    <input type="email" name="email" id="email" placeholder="abc@gmail.com"
-                                        oninput="emailChecker()">
-                                        <p class="error" id="emailError"></p>                           
+                                <label for="name">Enter Email Address : </label>
+                                <input type="email" name="email" id="email" placeholder="abc@gmail.com"
+                                    oninput="emailChecker()">
+                                <p class="error" id="emailError"></p>
                             </div>
                             <div class="submitbtn d-flex justify-center">
                                 <button class="btn btn-submit" type="submit">Sumit</button>
                             </div>
                             <p class="error text-center" id="loginError"></p>
                         </form>
-
+                        
                         <form action="" onsubmit="otpchecker(event)" class="OtpValidator">
-                            <div class="form-control"> 
-                                    <label for="name">Enter Email Address : </label>
-                                    <input type="number" name="otp" id="otp" placeholder="Enter Otp Here">                     
+                            <div class="form-control">
+                                <label for="name">Enter Otp: </label>
+                                <input type="number" name="otp" id="otp" placeholder="Enter Otp Here">
                             </div>
                             <div class="submitbtn d-flex justify-center">
                                 <button class="btn btn-submit" type="submit">Sumit</button>
                             </div>
+                            <p class="error text-center" id="otpGerator"></p>
                         </form>
 
-                        <form action="" onsubmit="PassworSetter(event)" class="NewPassword">
+                        <form action="" onsubmit="PasswordSetter(event)" class="NewPassword">
                             <div class="form-control">
-                              
+
+                                <div class="form-control">
+                                    <label for="name">Enter Email : </label>
+                                    <input type="email" name="email" id="email" placeholder="Enter Your Email"
+                                        oninput="emailChecker()">
+                                    <p class="error" id="emailError"></p>
+                                </div>
                                 <div class="form-control">
                                     <label for="name">Enter Password : </label>
                                     <input type="password" name="password" id="password" placeholder="Aa1@"
-                                    oninput="passwordChecker()">
+                                        oninput="passwordChecker()">
                                     <p class="error" id="passwordError"></p>
-                                </div>
-                                <div class="form-control">
-                                    <label for="name">Enter Confirm Password : </label>
-                                    <input type="password" name="Cpassword" id="Cpassword" placeholder="Aa1@"
-                                    oninput="CpasswordCheker()">
-                                    <p class="error" id="CpasswordError"></p>
                                 </div>
                             </div>
                             <div class="submitbtn d-flex justify-center">
@@ -71,4 +72,4 @@
 
 <script src="./forgot.js"></script>
 
-</html
+</html>

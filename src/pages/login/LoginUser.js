@@ -12,7 +12,11 @@ function LoginUser(event) {
     emailChecker();
     passwordChecker();
 
- 
+ if(localStorage.getItem("register") == null || localStorage.getItem("register") == undefined){
+    loginError.innerHTML = "User Not Register,please Register First"
+} else{
+     loginError.innerHTML = ""
+ }
 
     let validUser = userData.find((item)=>{
         return item.email === email && item.password === password

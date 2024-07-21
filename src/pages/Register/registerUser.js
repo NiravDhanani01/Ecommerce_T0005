@@ -31,12 +31,6 @@ function registrationForm(event) {
   } else {
     alert("All Field Require")
   }
-
-
-
-
-
-
   document.querySelector("#name").value = "";
   document.querySelector("#email").value = "";
   document.querySelector("#password").value = "";

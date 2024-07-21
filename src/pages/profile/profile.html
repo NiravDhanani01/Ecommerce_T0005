@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <link rel="icon" href="../../public/img/leaves.png">
+    <title>Cart</title>
+    <link rel="icon" href="../../public/img/user.jpeg">
     <link rel="stylesheet" href="../../public/css/all.min.css">
     <link rel="stylesheet" href="../../public/css/style.css">
-    <link rel="stylesheet" href="./product.css">
+    <link rel="stylesheet" href="./profile.css">
 </head>
+
 <body>
     <section class="banner">
         <header>
@@ -20,7 +22,7 @@
                     <div class="navBarItems largeNav">
                         <ul type="none" class="d-flex justify-between">
                             <li><a href="../../../index.html">Home</a></li>
-                            <li><a href="#">Product</a></li>
+                            <li><a href="../Product/product.html">Product</a></li>
                             <li onclick="GotoCart()" class="cartnotification">Cart <i
                                     class="fa-solid fa-cart-shopping"></i>
                                 <div class="bedgis" id="updateQty"></div>
@@ -51,16 +53,17 @@
                         <li><a href="../../../index.html">Home</a></li>
                         <li><a href="../Product/product.html">Product</a></li>
                         <li onclick="GotoCart()" class="cartnotification">Cart <i class="fa-solid fa-cart-shopping"></i>
-                            <div class="bedgis" id="updateQty"></div>
+                            <div class="bedgis">1</div>
                         </li>
+
                         <li class="dropDown"><i class="fa-regular fa-user"></i><span id="smalluserName"> User
                                 Name</span>
                             <div class="dropDown-Items">
                                 <ul type="none">
                                     <li id="smallloginUser"><a href="../login/login.html"><i
                                                 class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-                                    <li onclick="GotoUserProfile()" id="ResetPassword"><i class="fa-solid fa-gear"></i>
-                                        User Profile</li>
+                                    <li onclick="GotoUserSetting()" id="ResetPassword"><i class="fa-solid fa-gear"></i>
+                                        Reset Password</li>
                                     <li onclick="LogoutUser()" id="smalllogout"><i
                                             class="fa-solid fa-right-from-bracket"></i> Logout</li>
                                 </ul>
@@ -71,88 +74,108 @@
             </div>
         </header>
     </section>
-    <section class="categorySection">
+
+    <section class="userDetails">
         <div class="container">
-            <div class="category-header">
-                <p class="cat-title"><span class="cat-icon"><img src="../../public/img/cat-icon.png" width="25px"></span> Categories</p>
-                <h2 class="cat-head">Browse by Category</h2>
-            </div>
-            <div class="d-flex justify-center">
-                <input type="text" id="search" placeholder="search Category" oninput="SearchCategory()">
-            </div>
-            <div class="category-icons d-flex  justify-center">
-                <div class="cat-card" onclick="categoryFilter('Beverage')">
-                    <i class="fa-solid fa-mug-hot"></i>
-                    <h3 class="cat-card-title">Beverage</h3>
+            <div class="userCard d-flex">
+                <div class="img">
+                    <img src="../../public/img/user.jpeg" alt="" width="350px">
                 </div>
-                <div class="cat-card" onclick="categoryFilter('Snacks')">
-                    <i class="fa-solid fa-cookie-bite"></i>
-                    <h3 class="cat-card-title">Snacks</h3>
-                </div>
-                <div class="cat-card" onclick="categoryFilter('Dairy_Product')">
-                    <i class="fa-solid fa-cow"></i>
-                    <h3 class="cat-card-title text-center">Dairy</h3>
-                </div>
-                <div class="cat-card" onclick="categoryFilter('Vegetables')">
-                    <i class="fa-solid fa-carrot"></i>
-                    <h3 class="cat-card-title">Vegetables</h3>
-                </div>
-                <div class="cat-card" onclick="categoryFilter('Bakery')">
-                    <i class="fa-solid fa-cake-candles"></i>
-                    <h3 class="cat-card-title">Bakery</h3>
-                </div>
-                <div class="cat-card" onclick="categoryFilter('Beans')">
-                    <i class="fa-solid fa-seedling"></i>
-                    <h3 class="cat-card-title">Beans</h3>
-                </div>
-                <div class="cat-card" onclick="ClearFilter()">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                    <h3 class="cat-card-title text-center">Clear</h3>
+                <div class="userInfo">
+                    <div class="user">
+                        <div class="update d-flex justify-between ">
+                            <form action="" onsubmit="formUpdator()">
+                                <input type="text" placeholder="Enter Name" name="" id="inputName">
+                                <button type="submit" class="btn save">save </button>
+                            </form>
+                        </div>
+                        <div class="static d-flex justify-between">
+                            <p id="user"> </p>
+                            <i class="fa-solid fa-pen-to-square" onclick="UpdateDate()"></i>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="update d-flex justify-between ">
+                            <form action="" onsubmit="formUpdator()">
+                                <input type="email" placeholder="Enter email" name="" id="inputemail">
+                                <button type="submit" class="btn save">save </button>
+                            </form>
+                        </div>
+                        <div class="d-flex justify-between user">
+                            <p id="userEmail"> </p>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="update d-flex justify-between ">
+                            <form action="" onsubmit="formUpdator()">
+                                <input type="password" placeholder="Enter password" name="" id="inputpassword">
+                                <button type="submit" class="btn save">save </button>
+                            </form>
+                        </div>
+                        <div class="d-flex justify-between user">
+                            <p id="userPassword"> </p>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="update d-flex justify-between ">
+                            <form action="" onsubmit="formUpdator()">
+                                <input type="password" placeholder="Enter password" name="" id="inputpassword">
+                                <button type="submit" class="btn save">save </button>
+                            </form>
+                        </div>
+                        <div class="d-flex justify-between user">
+                            <p id="userContact"> </p>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="update d-flex justify-between ">
+                            <form action="" onsubmit="formUpdator()">
+                                <input type="password" placeholder="Enter password" name="" id="inputpassword">
+                                <button type="submit" class="btn save">save </button>
+                            </form>
+                        </div>
+                        <div class="d-flex justify-between user">
+                            <p id="userAddress"> </p>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="update d-flex justify-between ">
+                            <form action="" onsubmit="formUpdator()">
+                                <input type="password" placeholder="Enter password" name="" id="inputpassword">
+                                <button type="submit" class="btn save">save </button>
+                            </form>
+                        </div>
+                        <div class="d-flex justify-between user">
+                            <p id="pincode"> </p>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="filters">
-        <div class="container">
-            <div class="filter-controls d-flex justify-center">
-                <div class="sorting">
-                    <label for="sort">Sort by:</label>
-                    <select id="sort" onchange="sortProducts()">
-                        <option value="default">Default</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="name-atoz">Name: A to Z</option>
-                        <option value="name-ztoa">Name: Z to A</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="product-Section">
-        <div class="container">
-            <div class="our-products">
-                <div class="product-header">
-                    <p class="product-title"><span class="product-icon"><img src="../../public/img/grocery.png" width="25px" alt=""></span> Products</p>
-                    <h2 class="product-header">Our Best Products</h2>
-                </div>
-                <div class="product-list d-flex flex-wrap justify-center" id="productCard">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="footer-section">
+
+
+    <section class="fotter-section">
         <div class="container">
             <footer>
                 <div class="footer-details d-flex flex-wrap justify-between">
                     <div class="footer-one">
                         <div class="footlogo">
-                            <img src="../../public/img/logo.png" width="200px" alt="">
+                            <img src="./src/public/img/logo.png" width="200px" alt="">
                             <p class="endText">
-                                We are a friendly bar serving a variety of cocktails, wines and beers. Our bar is a perfect place for a couple.
+                                We are a friendly bar serving a variety of cocktails, wines and beers. Our bar is a
+                                perfect place for a couple.
                             </p>
                             <div class="d-flex">
                                 <span class="homeicon"><i class="fa-solid fa-house"></i></span>
-                                <p class="companyAddress"> 685 Market Street, Las Vegas, LA 95820, United States.</p>
+                                <p class="companyAddress"> 685 Market Street,
+                                    Las Vegas, LA 95820,
+                                    United States.</p>
                             </div>
                             <div class="d-flex">
                                 <span class="homeicon"><i class="fa-solid fa-phone"></i></span>
@@ -169,7 +192,7 @@
                             <h3>Pages</h3>
                             <ul type="none">
                                 <li class="page-link"><a href="../../../index.html">Home</a></li>
-                                <li class="page-link"><a href="#">Product</a></li>
+                                <li class="page-link"><a href="../Product/product.html">Product</a></li>
                                 <li class="page-link" onclick="GotoCart()">Cart</li>
                             </ul>
                         </div>
@@ -178,10 +201,10 @@
                         <h3>Download App</h3>
                         <p>Save Upto 10% With App & New User only</p>
                         <div class="d-flex justify-center Qr">
-                            <img src="../../public/img/qr.png" alt="">
+                            <img src="./src/public/img/qr.png" alt="">
                             <div class="playStore">
-                                <div><img src="../../public/img/appstore.svg" alt=""></div>
-                                <div><img src="../../public/img/playstore.svg" alt=""></div>
+                                <div><img src="./src/public/img/appstore.svg" alt=""></div>
+                                <div><img src="./src/public/img/playstore.svg" alt=""></div>
                             </div>
                         </div>
                         <h4 class="connected">Stay connected </h4>
@@ -199,6 +222,8 @@
             </footer>
         </div>
     </section>
-    <script src="./product.js"></script>
 </body>
+<script src="./profil.js"></script>
+
+
 </html>

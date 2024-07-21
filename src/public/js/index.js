@@ -25,18 +25,10 @@ async function DispalyProduct() {
               </div>    
         `
         })
-
-
-        if(localStorage.getItem("login") == null || localStorage.getItem("login") == undefined){
-            document.querySelector("#logout").style.display = "none"
-        } else{
-            let login = JSON.parse(localStorage.getItem("login"))
-            document.querySelector("#userName").innerText = `Welcome ${login.name}`
-            document.querySelector("#loginUser").style.display = "none"
-        }
     } catch (err) {
         console.log(err.message);
     }
+    updateCartQty()
 }
 DispalyProduct()
 
@@ -45,40 +37,74 @@ async function AddtoCart(id) {
         let res = await fetch("./src/public/js/data.json");
         let data = await res.json()
 
-        let cartData = []
-        let selectedData = data.filter((item) => item.id == id)
+        let selectedData = data.find(item => item.id == id);
 
-        if (localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined) {
-            cartData.push(selectedData)
-            localStorage.setItem("cart", JSON.stringify(cartData))
-        } else {
-            let oldData = JSON.parse(localStorage.getItem("cart"));
-            oldData.push(selectedData);
-            localStorage.setItem('cart', JSON.stringify(oldData))
-        }
+        if (!selectedData) return;
+ 
+        let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+        cartData.push(selectedData);
+        localStorage.setItem('cart', JSON.stringify(cartData));
     } catch (err) {
         console.log(err);
     }
+    updateCartQty()
 }
+function checkUserStatus() {
+    let loginData = JSON.parse(localStorage.getItem("login"));
+
+    if (!loginData) {
+        document.querySelector("#logout").style.display = "none";
+    } else {
+        document.querySelector("#userName").innerText = `Welcome ${loginData.name}`;
+        document.querySelector("#loginUser").style.display = "none";
+    }
+}
+checkUserStatus();
 
 function GotoProduct(){
     location.href = "./src/pages/Product/product.html"
 }
 
 function GotoCart(){
-    location.href = "./src/pages/Cart/cart.html"
-}
-function GotoHome(){
-    location.href = "#"
-}
-function GotoLoginPage(){
-    location.href="./src/pages/login/login.html"
-}
+    let loginData = JSON.parse(localStorage.getItem("login"));
 
-
-
+    if (!loginData) {
+        alert("User Not Valid, First Sign in")
+        return;
+    } else {
+        location.href="./src/pages/Cart/cart.html";
+    }
+}
 
 function LogoutUser(){
     localStorage.removeItem("login")
     location.href = "./index.html"
+}
+
+function toggleNavBar() {
+    var SmallMenu = document.getElementById('smallMenu');
+    if (SmallMenu.classList.contains('showSmallMenu')) {
+        SmallMenu.classList.remove('showSmallMenu');
+    } else {
+        SmallMenu.classList.add('showSmallMenu');
+    }
+}
+
+function updateCartQty(){
+    let cartData = JSON.parse(localStorage.getItem("cart"));
+    if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
+        document.querySelector("#updateQty").innerHTML = 0
+    }else{
+        document.querySelector("#updateQty").innerHTML = cartData.length
+    }
+}
+
+updateCartQty()
+
+function GotoUserProfile(){
+    if(localStorage.getItem('login') == null || localStorage.getItem('login') == undefined){
+        alert("invalid User,login First")
+    } else{
+        location.href = "./src/pages/profile/profile.html"
+    }
 }

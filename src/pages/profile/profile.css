@@ -1,0 +1,52 @@
+.banner {
+    padding: 10px;
+    height: auto;
+}
+.userDetails{
+    margin: 50px 0;
+}
+.userCard{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f3f0;
+}
+.img{
+    width: 30%;
+}
+.img img{
+    border-radius: 10px;
+}
+
+.userInfo{
+    margin: 0 25px ;
+    padding: 15px ;
+    background-color: #fff;
+    width: 70%;
+    border-radius: 10px;
+}
+
+.user{
+    line-height: 1.5;
+    padding: 10px 0;
+    font-size: 25px;
+}
+.user i{
+    cursor: pointer;
+}
+.save{
+    background-color: #3577f0;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px 10px;
+}
+.update{
+    display: none;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+.update input{
+    width: 80%;
+    padding: 10px;
+    font-size: 15px;
+}

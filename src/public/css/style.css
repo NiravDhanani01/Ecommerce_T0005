@@ -3,9 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
- 
+
 body {
     font-family: sans-serif;
+    position: relative;
 }
 
 .container {
@@ -62,8 +63,8 @@ body {
 
 .banner {
     background-color: #f9f3f0;
-    padding: 10px;
-    height: 80vh;
+    padding: 30px 10px;
+    height: auto;
 }
 
 header {
@@ -94,6 +95,7 @@ header {
 .navBarItems ul li i {
     padding-right: 9px;
 }
+
 .navBarItems ul li a {
     text-decoration: none;
     color: #292930;
@@ -103,6 +105,7 @@ header {
     color: #3577f0;
     font-weight: 500;
 }
+
 .navBarItems ul li:hover {
     color: #3577f0;
     font-weight: 500;
@@ -111,25 +114,26 @@ header {
 .dropDown {
     position: relative;
 }
+
 .dropDown-Items {
     position: absolute;
     background-color: #fff;
     width: 200px;
     padding: 5px;
-    top: 35px; 
+    top: 35px;
     right: 0;
     line-height: 2;
     box-shadow: 2px 2px 3px #2929309f;
     border-radius: 10px;
     opacity: 0;
-    z-index: 1000; 
+    z-index: 1000;
     transition: all 0.5s;
 }
 
 .dropDown:hover .dropDown-Items {
     opacity: 1;
     top: 35px;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .navBarItemsSmall {
@@ -165,10 +169,12 @@ header {
 .small-navBarItems li {
     margin: 10px 0;
 }
-.small-navBarItems li a{
+
+.small-navBarItems li a {
     color: #292930;
     text-decoration: none;
 }
+
 .small-navBarItems li:hover {
     color: #0059ff
 }
@@ -180,13 +186,16 @@ header {
 }
 
 .showSmallMenu {
+    width: 100%;
     opacity: 1;
     display: flex;
 }
-.cartnotification{
+
+.cartnotification {
     position: relative;
 }
-.bedgis{
+
+.bedgis {
     position: absolute;
     top: -18px;
     right: 3px;
@@ -554,14 +563,14 @@ header {
 }
 
 .page-link {
-    padding: 10px 0; 
+    padding: 10px 0;
     color: #3577f0;
     font-size: 15px;
     cursor: pointer;
     transition: all 1s;
 }
 
-.page-link:hover{
+.page-link:hover {
     color: #0059ff;
     font-weight: 600;
 }
@@ -618,54 +627,58 @@ header {
 .endnotes h4 {
     padding: 10px 0;
 }
-ul li a{
+
+ul li a {
     text-decoration: none;
     color: #3577f0;
 }
-.error{
+
+.error {
     color: red;
 }
-@media (max-width:800px) {
-    .navBarItems .largeNav {
-        display: none;
-    }
 
-    .navBarItemsSmall {
-        display: block;
-    }
-}
-@media (max-width:912px) {
-    .footer-one,.footer-two{
+@media (max-width:847px) {
+
+    .footer-one,
+    .footer-two {
         width: 50%;
     }
-    .footer-three{
+
+    .footer-three {
         width: 100%;
         border-top: 1px dashed #3576f070;
-        border-left:none ;
+        border-left: none;
         padding-top: 10px;
-    
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .navBar .largeNav {
         display: none;
     }
+
     .navBar .small-navBar {
         display: block;
     }
 }
 
 @media (max-width:575px) {
-    .footer-one,.footer-two,.footer-three{
+
+    .footer-one,
+    .footer-two,
+    .footer-three {
         width: 100%;
         border-top: 1px dashed #3576f070;
-        border-left:none ;
-        border-right:none ;
+        border-left: none;
+        border-right: none;
         padding-top: 10px;
     }
-    .footer-one{
-        border-top:none ;
+
+    .footer-one {
+        border-top: none;
+    }
+
+    .useCard {
+        width: 310px;
     }
 }
-

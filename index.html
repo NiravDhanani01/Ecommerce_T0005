@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="icon" href="./src/public/img/leaves.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="./src/public/css/style.css">
     <link rel="stylesheet" href="./src/public/css/all.min.css">
+
 </head>
 
 <body>
     <section class="banner">
-        <header>
+        <header class="wow animate__fadeIn" data-wow-duration="2s">
             <div class="container">
                 <nav class="navBar d-flex justify-between">
                     <div class="logoImg">
@@ -20,12 +23,13 @@
                     </div>
                     <div class="navBarItems largeNav">
                         <ul type="none" class="d-flex justify-between">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="../../../index.html">Home</a></li>
                             <li><a href="./src/pages/Product/product.html">Product</a></li>
                             <li onclick="GotoCart()" class="cartnotification">Cart <i
                                     class="fa-solid fa-cart-shopping"></i>
                                 <div class="bedgis" id="updateQty"></div>
                             </li>
+                            <li><a href="./src/pages/Contact/contact.html">Contact</a> </li>
                             <li class="dropDown"><i class="fa-regular fa-user"></i><span id="userName"> User Name</span>
                                 <div class="dropDown-Items">
                                     <ul type="none">
@@ -52,13 +56,14 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="./src/pages/Product/product.html">Product</a></li>
                         <li onclick="GotoCart()" class="cartnotification">Cart <i class="fa-solid fa-cart-shopping"></i>
-                            <div class="bedgis" id="updateQty"></div>
+                            <div class="bedgis" id="smallupdateQty"></div>
                         </li>
+                        <li><a href="./src/pages/Contact/contact.html">Contact</a> </li>
                         <li class="dropDown"><i class="fa-regular fa-user"></i><span id="smalluserName"> User
                                 Name</span>
                             <div class="dropDown-Items">
                                 <ul type="none">
-                                    <li id="smallloginUser"><a href="./src/pages/login/login.html"><i
+                                    <li id="smallloginUser"><a href="./src/pages/login/"><i
                                                 class="fa-solid fa-right-to-bracket"></i> Login</a></li>
                                     <li onclick="GotoUserProfile()" id="ResetPassword"><i class="fa-solid fa-gear"></i>
                                         User Profile</li>
@@ -71,7 +76,7 @@
                 </div>
             </div>
         </header>
-        <div class="container d-flex justify-center">
+        <div class="container d-flex justify-center wow animate__backInDown" data-wow-duration="1s" >
             <div class="banner-Image">
                 <div class="banner-Content">
                     <p class="banner-offer">Exclusive offer <span class="banner-discount">30% Off</span></p>
@@ -83,7 +88,7 @@
             </div>
         </div>
     </section>
-    <section class="categorySection">
+    <section class="categorySection ">
         <div class="container">
             <div class="category-header">
                 <p class="cat-title"><span class="cat-icon"><img src="./src/public/img/cat-icon.png"
@@ -91,34 +96,34 @@
                 <h2 class="cat-head">Browse by Category</h2>
             </div>
             <div class="category-icons d-flex  justify-center">
-                <div class="cat-card">
+                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s">
                     <i class="fa-solid fa-mug-hot"></i>
                     <h3 class="cat-card-title">Beverage</h3>
                 </div>
-                <div class="cat-card">
+                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s" >
                     <i class="fa-solid fa-cookie-bite"></i>
                     <h3 class="cat-card-title">Snacks</h3>
                 </div>
-                <div class="cat-card">
+                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s">
                     <i class="fa-solid fa-cow"></i>
                     <h3 class="cat-card-title text-center">Dairy</h3>
                 </div>
-                <div class="cat-card">
+                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s">
                     <i class="fa-solid fa-carrot"></i>
                     <h3 class="cat-card-title">Vegetables</h3>
                 </div>
-                <div class="cat-card">
+                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s">
                     <i class="fa-solid fa-cake-candles"></i>
                     <h3 class="cat-card-title">Bakery</h3>
                 </div>
-                <div class="cat-card">
+                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s">
                     <i class="fa-solid fa-seedling"></i>
                     <h3 class="cat-card-title">Beans</h3>
                 </div>
             </div>
         </div>
     </section>
-    <section class="product-Section">
+    <section class="product-Section ">
         <div class="container">
             <div class="our-products">
                 <div class="product-header">
@@ -126,7 +131,7 @@
                                 width="25px" alt=""></span> Products</p>
                     <h2 class="product-header">Our Best Products</h2>
                 </div>
-                <div class="product-list d-flex flex-wrap justify-center" id="productCard">
+                <div class="product-list d-flex flex-wrap justify-center wow animate__backInUp" data-wow-duration="2s" id="productCard">
                 </div>
                 <div class="d-flex justify-center">
                     <button class="showBtn" onclick="GotoProduct()">show All product</button>
@@ -144,7 +149,7 @@
                 <h3 class="testi-head">Users Feedback</h3>
             </div>
             <div class="user-feedback d-flex flex-wrap justify-center">
-                <div class="review">
+                <div class="review wow animate__bounceIn" data-wow-duration="1s">
                     <div class="useCard">
                         <q>It is the best company has the customer relations about any details of package. In any case,
                             they are really willing to solve the problem. There are lots of food variety compare to
@@ -188,7 +193,7 @@
                     </div>
                 </div>
                 <!-- /////// -->
-                <div class="review">
+                <div class="review wow animate__bounceIn" data-wow-duration="1s">
                     <div class="useCard">
                         <q>It's not called Best grocery for nothing. I've been shopping from them for a few years now
                             and there is always good availability, fast delivery and most often the cheapest prices
@@ -276,5 +281,9 @@
     </section>
 </body>
 <script src="./src/public/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 
 </html>

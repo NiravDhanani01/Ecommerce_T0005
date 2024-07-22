@@ -51,19 +51,20 @@ async function AddtoCart(id) {
 }
 function checkUserStatus() {
     let loginData = JSON.parse(localStorage.getItem("login"));
-
+  
     if (!loginData) {
-        document.querySelector("#logout").style.display = "none";
+      document.querySelector("#logout").style.display = "none";
+      document.querySelector("#smalllogout").style.display = "none";
     } else {
-        document.querySelector("#userName").innerText = `Welcome ${loginData.name}`;
-        document.querySelector("#loginUser").style.display = "none";
+      document.querySelector("#userName").innerText = `Welcome ${loginData.name}`;
+      document.querySelector(
+        "#smalluserName"
+      ).innerText = `Welcome ${loginData.name}`;
+      document.querySelector("#loginUser").style.display = "none";
+      document.querySelector("#smallloginUser").style.display = "none";
     }
-}
+  }
 checkUserStatus();
-
-function GotoProduct(){
-    location.href = "./src/pages/Product/product.html"
-}
 
 function GotoCart(){
     let loginData = JSON.parse(localStorage.getItem("login"));
@@ -94,12 +95,13 @@ function updateCartQty(){
     let cartData = JSON.parse(localStorage.getItem("cart"));
     if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
         document.querySelector("#updateQty").innerHTML = 0
+        document.querySelector("#smallupdateQty").innerHTML = 0
     }else{
         document.querySelector("#updateQty").innerHTML = cartData.length
+        document.querySelector("#smallupdateQty").innerHTML = cartData.length
     }
-}
-
-updateCartQty()
+  }
+  updateCartQty()
 
 function GotoUserProfile(){
     if(localStorage.getItem('login') == null || localStorage.getItem('login') == undefined){

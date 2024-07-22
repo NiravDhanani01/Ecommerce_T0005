@@ -17,7 +17,6 @@ function checkUserStatus() {
 function displayCart() {
   let CartData = JSON.parse(localStorage.getItem("cart")) || [];
   let tbl = "";
-  let card = "";
 
   if (CartData.length === 0) {
     document.querySelector("#CartCard").innerHTML = "<p>Your cart is empty</p>";
@@ -27,25 +26,22 @@ function displayCart() {
   CartData.map((item, i) => {
     if (item.id) {
       tbl += `
-        <div class="cartTable largedisplay">
+        <div class="cartTable largedisplay wow animate__fadeInUp" data-wow-duration="1s">
           <div class="cartCard d-flex justify-between">
             <p class="cartnum">${i + 1}</p>
             <img class="CartImg" src="${item.img}" alt="${item.name}">
             <p class="Cartname">${item.name}</p>
             <p class="CartPrice">${item.offerPrice}</p>
             <p class="CartQty">
-              <button class="decBtn" onclick="Decrement(${
-                item.id
-              })"> - </button>
+              <button class="decBtn" onclick="Decrement(${item.id
+        })"> - </button>
               ${item.qty}
-              <button class="incBtn" onclick="increment(${
-                item.id
-              })"> + </button>
+              <button class="incBtn" onclick="increment(${item.id
+        })"> + </button>
             </p>
             <p class="subtotal">${item.offerPrice * item.qty}</p>
-            <div class="delBtn"><button class="btn deleteBtn" onclick="removeItem(${
-              item.id
-            })">Remove</button></div>
+            <div class="delBtn"><button class="btn deleteBtn" onclick="removeItem(${item.id
+        })">Remove</button></div>
           </div>
         </div>
 
@@ -61,24 +57,31 @@ function displayCart() {
               <p class="Cartname">${item.name}</p>
               <p class="CartPrice">Price : ${item.offerPrice}  &#8377;</p>
               <p class="CartQty d-flex"> 
-                <button class="decBtn" onclick="Decrement(${
-                  item.id
-                })"> - </button>
+                <button class="decBtn" onclick="Decrement(${item.id
+        })"> - </button>
                 ${item.qty}
-                <button class="incBtn" onclick="increment(${
-                  item.id
-                })"> + </button>
+                <button class="incBtn" onclick="increment(${item.id
+        })"> + </button>
               </p>
               <p class="subtotal"> Subtotal : ${item.offerPrice * item.qty}</p>
               <div class="delBtn d-flex justify-center">
-                <button class="btn deleteBtn" onclick="removeItem(${
-                  item.id
-                })">Remove</button>
+                <button class="btn deleteBtn" onclick="removeItem(${item.id
+        })">Remove</button>
               </div>
             </div>
           </div>
         </div>
       `;
+    }
+  });
+  document.querySelector("#CartCard").innerHTML = tbl;
+}
+function displayOrder() {
+  let CartData = JSON.parse(localStorage.getItem("cart")) || [];
+  let card = "";
+
+  CartData.map((item, i) => {
+    if (item.id) {
       card += `
         <div>
           <div class="d-flex justify-between">
@@ -89,7 +92,6 @@ function displayCart() {
       `;
     }
   });
-  document.querySelector("#CartCard").innerHTML = tbl;
   document.querySelector("#productDetails").innerHTML = card;
 }
 
@@ -99,7 +101,16 @@ function calculateTotal() {
     (acc, item) => acc + item.offerPrice * item.qty,
     0
   );
-  let charge = total < 500 ? 80 : 0;
+  let charge;
+  if(total < 500){
+    charge = 80
+    document.querySelector('.deleiveryCharge').style.display = "block"
+    document.querySelector('.deleiveryFree').style.display = "none"
+  } else {
+    document.querySelector('.deleiveryCharge').style.display = "none"
+    document.querySelector('.deleiveryFree').style.display = "block"
+    charge = 0;
+  }
 
   document.querySelector("#total").innerText = total;
   document.querySelector(".ck-finalTotal").innerText = total;
@@ -123,14 +134,15 @@ function removeItem(id) {
   let updatedCart = CartData.filter((item) => item.id != id);
   localStorage.setItem("cart", JSON.stringify(updatedCart));
   displayCart();
+  displayOrder()
   calculateTotal();
   updateCartQty();
-
 }
 
 function clearCart() {
   localStorage.removeItem("cart");
   displayCart();
+  displayOrder()
   calculateTotal();
 }
 
@@ -157,6 +169,7 @@ function addItemToCart(item) {
 
   localStorage.setItem("cart", JSON.stringify(CartData));
   displayCart();
+  displayOrder()
   calculateTotal();
 }
 
@@ -170,6 +183,7 @@ function increment(id) {
   });
   localStorage.setItem("cart", JSON.stringify(updatedCart));
   displayCart();
+  displayOrder()
   calculateTotal();
 }
 
@@ -186,11 +200,13 @@ function Decrement(id) {
   });
   localStorage.setItem("cart", JSON.stringify(updatedCart));
   displayCart();
+  displayOrder()
   calculateTotal();
 }
 
 let isNameValid = false;
 let isNumberValid = false;
+let ispincode = false
 
 function BillingForm(event) {
   event.preventDefault();
@@ -205,10 +221,11 @@ function BillingForm(event) {
     let address = document.querySelector("#BillAddess").value;
     let pincode = document.querySelector("#pincode").value;
 
-    nameChecker();
-    numberChecker();
+    NameChecker();
+    NumberChecker();
+    PinCheker()
 
-    if (isNameValid && isNumberValid) {
+    if (isNameValid && isNumberValid && ispincode) {
       let obj = {
         name,
         contact,
@@ -223,6 +240,51 @@ function BillingForm(event) {
   document.querySelector("#contact").value = "";
   document.querySelector("#BillAddess").value = "";
   document.querySelector("#pincode").value = "";
+}
+
+function NameChecker() {
+  let name = document.querySelector("#Billname").value;
+  let error = document.querySelector("#nameError");
+  let regex = /^[a-zA-Z\s]+$/;
+
+  if (name.length < 2) {
+    error.innerText = "Name should be at least 2 characters";
+    isNameValid = false;
+  } else if (!regex.test(name)) {
+    error.innerText = "Numbers and special characters are not allowed";
+    isNameValid = false;
+  } else {
+    error.innerText = "";
+    isNameValid = true;
+  }
+}
+
+function NumberChecker() {
+  let contact = document.querySelector("#contact").value;
+  let error = document.querySelector("#contactError");
+  let regex = /^\d{10}$/;
+
+  if (!regex.test(contact)) {
+    error.innerText = "Contact Number must be 10 digits";
+    isNumberValid = false;
+  } else {
+    error.innerText = "";
+    isNumberValid = true;
+  }
+}
+
+function PinCheker() {
+  let pincode = document.querySelector("#pincode").value;
+  let pinerror = document.querySelector("#pinerror");
+  let regex = /^[1-9][0-9]{5}$/;
+
+if (!regex.test(pincode)) {
+    pinerror.innerHTML = `pin must be 6 character`
+    ispincode = false
+  } else {
+    pinerror.innerHTML = ""
+    ispincode = true
+  }
 }
 
 function CheckOut() {
@@ -243,6 +305,7 @@ function CheckOut() {
 
   if (!billingData) {
     alert("Please add Billing Details");
+    return
   } else {
     document.querySelector(".date").innerHTML = `
       <p class="modelcontent"><b>Date </b>: ${currentDate}</p>`;
@@ -280,57 +343,28 @@ function CheckOut() {
 }
 
 function closeModal() {
-  var modal = document.getElementById("checkoutModal");
-  modal.style.display = "none";
+document.getElementById("checkoutModal").style.display = "none";
   localStorage.removeItem("cart");
+  localStorage.removeItem("billing");
   location.href = "../../../index.html";
 }
-function closebnt(){
-  var modal = document.getElementById("checkoutModal");
-  modal.style.display = "none";
+
+function closebnt() {
+document.getElementById("checkoutModal").style.display = "none";
 }
 
-function nameChecker() {
-  let name = document.querySelector("#Billname").value;
-  let error = document.querySelector("#nameError");
-  let regex = /^[a-zA-Z\s]+$/;
-
-  if (name.length < 2) {
-    error.innerText = "Name should be at least 2 characters";
-    isNameValid = false;
-  } else if (!regex.test(name)) {
-    error.innerText = "Numbers and special characters are not allowed";
-    isNameValid = false;
-  } else {
-    error.innerText = "";
-    isNameValid = true;
-  }
-}
-
-function numberChecker() {
-  let contact = document.querySelector("#contact").value;
-  let error = document.querySelector("#contactError");
-  let regex = /^\d{10}$/;
-
-  if (!regex.test(contact)) {
-    error.innerText = "Contact Number must be 10 digits";
-    isNumberValid = false;
-  } else {
-    error.innerText = "";
-    isNumberValid = true;
-  }
-}
-function updateCartQty() {
+function updateCartQty(){
   let cartData = JSON.parse(localStorage.getItem("cart"));
-  if (
-    localStorage.getItem("cart") == null ||
-    localStorage.getItem("cart") == undefined
-  ) {
-    document.querySelector("#updateQty").innerHTML = 0;
-  } else {
-    document.querySelector("#updateQty").innerHTML = cartData.length;
+  if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
+      document.querySelector("#updateQty").innerHTML = 0
+      document.querySelector("#smallupdateQty").innerHTML = 0
+  }else{
+      document.querySelector("#updateQty").innerHTML = cartData.length
+      document.querySelector("#smallupdateQty").innerHTML = cartData.length
   }
 }
+updateCartQty()
+
 function GotoUserProfile() {
   if (
     localStorage.getItem("login") == null ||
@@ -342,8 +376,8 @@ function GotoUserProfile() {
   }
 }
 
-updateCartQty();
 
+displayOrder()
 checkUserStatus();
 displayCart();
 calculateTotal();

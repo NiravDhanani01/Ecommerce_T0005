@@ -1,7 +1,9 @@
 .banner {
     background-color: #f9f3f0;
-    padding: 10px;
+    padding: 5px;
     height: auto;
+    position: sticky;
+    top: 0;
 }
 
 .cart-Section {
@@ -181,6 +183,12 @@
 .deleiveryCharge{
     font-size: 13px;
     color: red;
+    display: none;
+}
+.deleiveryFree{
+    display: none;
+    font-size: 13px;
+    color: green;
 }
 
 

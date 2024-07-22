@@ -37,7 +37,7 @@ async function displayProducts(
 
     filteredData.map((item) => {
       productCard.innerHTML += `
-              <div class="product-card" id="${item.id}">
+              <div class="product-card wow animate__bounceIn" data-wow-duration="1s" id="${item.id}">
                   <div class="product-img">
                       <img src="${item.img}" alt="">
                   </div>
@@ -147,8 +147,10 @@ function updateCartQty(){
   let cartData = JSON.parse(localStorage.getItem("cart"));
   if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
       document.querySelector("#updateQty").innerHTML = 0
+      document.querySelector("#smallupdateQty").innerHTML = 0
   }else{
       document.querySelector("#updateQty").innerHTML = cartData.length
+      document.querySelector("#smallupdateQty").innerHTML = cartData.length
   }
 }
 updateCartQty()

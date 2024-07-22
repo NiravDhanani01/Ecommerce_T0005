@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-    <link rel="icon" href="../../public/img/leaves.png">
-    <link rel="stylesheet" href="../../public/css/all.min.css">
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <title>Contact</title>
+    <link rel="icon" href="./src/public/img/leaves.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./product.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="./contact.css">
+    <link rel="stylesheet" href="../../public/css/all.min.css">
+
 </head>
+
 <body>
     <section class="banner">
-        <header class="wow animate__fadeIn" data-wow-duration="2s">
+        <header  class="wow animate__fadeIn" data-wow-duration="2s">
             <div class="container">
                 <nav class="navBar d-flex justify-between">
                     <div class="logoImg">
@@ -21,16 +24,16 @@
                     <div class="navBarItems largeNav">
                         <ul type="none" class="d-flex justify-between">
                             <li><a href="../../../index.html">Home</a></li>
-                            <li><a href="#">Product</a></li>
+                            <li><a href="../Product/product.html">Product</a></li>
                             <li onclick="GotoCart()" class="cartnotification">Cart <i
                                     class="fa-solid fa-cart-shopping"></i>
                                 <div class="bedgis" id="updateQty"></div>
                             </li>
-                            <li><a href="../Contact/contact.html">Contact</a> </li>
+                            <li><a href="#">Contact</a> </li>
                             <li class="dropDown"><i class="fa-regular fa-user"></i><span id="userName"> User Name</span>
                                 <div class="dropDown-Items">
                                     <ul type="none">
-                                        <li id="loginUser"><a href="../login/login.html"><i
+                                        <li id="loginUser"><a href="./src/pages/login/login.html"><i
                                                     class="fa-solid fa-right-to-bracket"></i> Login</a></li>
                                         <li onclick="GotoUserProfile()" id="ResetPassword"><i
                                                 class="fa-solid fa-gear"></i> User Profile</li>
@@ -74,76 +77,73 @@
             </div>
         </header>
     </section>
-    <section class="categorySection">
+
+    <section class="contactsection">
         <div class="container">
-            <div class="category-header">
-                <p class="cat-title"><span class="cat-icon"><img src="../../public/img/cat-icon.png" width="25px"></span> Categories</p>
-                <h2 class="cat-head">Browse by Category</h2>
+            <div class="form-head">
+                <h2>Contact With Us</h2>
             </div>
-            <div class="d-flex justify-center">
-                <input type="text" id="search" placeholder="search Category" oninput="SearchCategory()">
-            </div>
-            <div class="category-icons d-flex  justify-center">
-                <div class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="categoryFilter('Beverage')">
-                    <i class="fa-solid fa-mug-hot"></i>
-                    <h3 class="cat-card-title">Beverage</h3>
+            <div class="contactinfo d-flex flex-wrap">
+                <div class="contact-form wow animate__fadeInLeft" data-wow-duration="1s">
+                    <div class="form-title">
+                        <h2>We would love to hear from you.</h2>
+                        <p>If you’ve got great products your making or looking to work with us then drop us a line.</p>
+                    </div>
+                    <div class="formstructure">
+                        <form action="" onsubmit="ContactDetails(event)" class="d-flex flex-wrap">
+                            <div class="info_form sp1">
+                                <label for="name">Name</label>
+                                <input type="text" placeholder="Enter Name" id="InfoName">
+                            </div>
+                            <div class="info_form sp1">
+                                <label for="name">Phone</label>
+                                <input type="number" placeholder="+91 " id="Infophone">
+                            </div>
+                            <div class="info_form ">
+                                <label for="name">Email</label>
+                                <input type="email" placeholder="Abc01@gmail.com " id="InfoEmail">
+                            </div>
+                            <div class="info_form ">
+                                <label for="name">Your Message </label>
+                                <textarea type="text" rows="4" placeholder="Enter Your Message  " id="InfoMessage"></textarea>
+                            </div>
+                            <div style="margin: 0 auto;">
+                                <button class="btn message" type="submit">Send message</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div  class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="categoryFilter('Snacks')">
-                    <i class="fa-solid fa-cookie-bite"></i>
-                    <h3 class="cat-card-title">Snacks</h3>
-                </div>
-                <div  class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="categoryFilter('Dairy_Product')">
-                    <i class="fa-solid fa-cow"></i>
-                    <h3 class="cat-card-title text-center">Dairy</h3>
-                </div>
-                <div  class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="categoryFilter('Vegetables')">
-                    <i class="fa-solid fa-carrot"></i>
-                    <h3 class="cat-card-title">Vegetables</h3>
-                </div>
-                <div  class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="categoryFilter('Bakery')">
-                    <i class="fa-solid fa-cake-candles"></i>
-                    <h3 class="cat-card-title">Bakery</h3>
-                </div>
-                <div  class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="categoryFilter('Beans')">
-                    <i class="fa-solid fa-seedling"></i>
-                    <h3 class="cat-card-title">Beans</h3>
-                </div>
-                <div  class="cat-card wow animate__bounceIn" data-wow-duration="1s" onclick="ClearFilter()">
-                    <i class="fa-solid fa-arrows-rotate"></i>
-                    <h3 class="cat-card-title text-center">Clear</h3>
+                <div class="contact-details wow animate__fadeInRight" data-wow-duration="1s">
+                    <div class="store">
+                        <h2 class="storeHead">Our Store</h2>
+                        <div class="storeDetail">
+                            <p>8212 E. Glen Creek Street Orchard Park, NY 14127, United States of
+                                America</p>
+                        </div>
+                        <div class="storeDetail">
+                            <p>Phone: +123 456 7890</p>
+                            <p>Email: Hello@etrade.com</p>
+                        </div>
+                    </div>
+                    <div class="store">
+                        <h2 class="storeHead"> Opening Hours:</h2>
+                        <div class="storeDetail">
+                            <p>Monday to Saturday: 9am - 10pm</p>
+                            <p> Sundays: 10am - 6pm</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="filters">
+    <section class="nevigationSection">
         <div class="container">
-            <div class="filter-controls d-flex justify-center">
-                <div class="sorting">
-                    <label for="sort">Sort by:</label>
-                    <select id="sort" onchange="sortProducts()">
-                        <option value="default">Default</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="name-atoz">Name: A to Z</option>
-                        <option value="name-ztoa">Name: Z to A</option>
-                    </select>
-                </div>
-            </div>
+           <div class="navigationMap wow animate__flipInX" data-wow-duration="1s">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9387450197037!2d72.86865777600228!3d21.23427748068656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fbe056894ef%3A0x7bfc941e108f23a5!2sIT%20Park!5e0!3m2!1sen!2sin!4v1721649508098!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           </div>
         </div>
     </section>
-    <section class="product-Section">
-        <div class="container">
-            <div class="our-products">
-                <div class="product-header">
-                    <p class="product-title"><span class="product-icon"><img src="../../public/img/grocery.png" width="25px" alt=""></span> Products</p>
-                    <h2 class="product-header">Our Best Products</h2>
-                </div>
-                <div class="product-list d-flex flex-wrap justify-center" id="productCard">
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="footer-section">
+    <section class="fotter-section">
         <div class="container">
             <footer>
                 <div class="footer-details d-flex flex-wrap justify-between">
@@ -151,11 +151,14 @@
                         <div class="footlogo">
                             <img src="../../public/img/logo.png" width="200px" alt="">
                             <p class="endText">
-                                We are a friendly bar serving a variety of cocktails, wines and beers. Our bar is a perfect place for a couple.
+                                We are a friendly bar serving a variety of cocktails, wines and beers. Our bar is a
+                                perfect place for a couple.
                             </p>
                             <div class="d-flex">
                                 <span class="homeicon"><i class="fa-solid fa-house"></i></span>
-                                <p class="companyAddress"> 685 Market Street, Las Vegas, LA 95820, United States.</p>
+                                <p class="companyAddress"> 685 Market Street,
+                                    Las Vegas, LA 95820,
+                                    United States.</p>
                             </div>
                             <div class="d-flex">
                                 <span class="homeicon"><i class="fa-solid fa-phone"></i></span>
@@ -172,7 +175,7 @@
                             <h3>Pages</h3>
                             <ul type="none">
                                 <li class="page-link"><a href="../../../index.html">Home</a></li>
-                                <li class="page-link"><a href="#">Product</a></li>
+                                <li class="page-link"><a href="../Product/product.html">Product</a></li>
                                 <li class="page-link" onclick="GotoCart()">Cart</li>
                             </ul>
                         </div>
@@ -202,10 +205,11 @@
             </footer>
         </div>
     </section>
-    <script src="./product.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+</body>
+<script src="./contact.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script>
     new WOW().init();
 </script>
-</body>
+
 </html>

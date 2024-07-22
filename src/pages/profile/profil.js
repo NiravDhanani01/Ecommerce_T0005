@@ -27,18 +27,17 @@ function checkUserStatus() {
 
 checkUserStatus();
 
-function updateCartQty() {
+function updateCartQty(){
   let cartData = JSON.parse(localStorage.getItem("cart"));
-  if (
-    localStorage.getItem("cart") == null ||
-    localStorage.getItem("cart") == undefined
-  ) {
-    document.querySelector("#updateQty").innerHTML = 0;
-  } else {
-    document.querySelector("#updateQty").innerHTML = cartData.length;
+  if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
+      document.querySelector("#updateQty").innerHTML = 0
+      document.querySelector("#smallupdateQty").innerHTML = 0
+  }else{
+      document.querySelector("#updateQty").innerHTML = cartData.length
+      document.querySelector("#smallupdateQty").innerHTML = cartData.length
   }
 }
-updateCartQty();
+updateCartQty()
 
 function LogoutUser() {
   localStorage.removeItem("login");
@@ -79,7 +78,6 @@ function resetPassword() {
   document.querySelector(".reset").style.display = "none"
 }
 
-
 function closebnt() {
   document.getElementById("model").style.display = "none";
   document.querySelector(".reset").style.display = "block"
@@ -89,21 +87,24 @@ let ispassword = false;
 
 function SavePassword(event) {
   event.preventDefault();
-  let currentPassword = document.querySelector('#curruntPassword').value;
+  let curruntPassword = document.querySelector('#curruntPassword').value;
   let newPassword = document.querySelector('#NewPassword').value;
   let registerData = JSON.parse(localStorage.getItem("register"));
   let logindata = JSON.parse(localStorage.getItem("login"));
-  if (!currentPassword || !newPassword) {
+  if (!curruntPassword || !newPassword) {
     alert("Enter all details");
     return;
   }
   passwordChecker()
 
   let update = registerData.find((item) => item.password == logindata.password)
-  if (update.password == currentPassword) {
+  if(update === undefined){
+    alert("password not match")
+  }
+  if (update.password === curruntPassword) {
     update.password = newPassword;
   } else {
-    alert("password not match")
+    alert("currunt password not match password not match")
     return
   }
   localStorage.setItem("register", JSON.stringify(registerData));
@@ -111,7 +112,7 @@ function SavePassword(event) {
   document.querySelector('#NewPassword').value = ""
   document.querySelector("#model").style.display = "none"
   document.querySelector(".reset").style.display = "block"
-  userDisplay()
+  LogoutUser()
 }
 
 function passwordChecker() {

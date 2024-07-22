@@ -15,9 +15,9 @@ function checkUserStatus() {
 }
 
 function displayCart() {
+  let CartData = JSON.parse(localStorage.getItem("cart")) || [];
   let tbl = "";
   let card = "";
-  let CartData = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (CartData.length === 0) {
     document.querySelector("#CartCard").innerHTML = "<p>Your cart is empty</p>";
@@ -124,6 +124,8 @@ function removeItem(id) {
   localStorage.setItem("cart", JSON.stringify(updatedCart));
   displayCart();
   calculateTotal();
+  updateCartQty();
+
 }
 
 function clearCart() {
@@ -282,6 +284,10 @@ function closeModal() {
   modal.style.display = "none";
   localStorage.removeItem("cart");
   location.href = "../../../index.html";
+}
+function closebnt(){
+  var modal = document.getElementById("checkoutModal");
+  modal.style.display = "none";
 }
 
 function nameChecker() {

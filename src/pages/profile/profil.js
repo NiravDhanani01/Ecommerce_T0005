@@ -55,44 +55,75 @@ function userDisplay() {
   let registerData = JSON.parse(localStorage.getItem("register"));
   let billingData = JSON.parse(localStorage.getItem("billing"));
 
-  
+
   if (logindata && registerData) {
     const currentUser = registerData.find(user => user.email === logindata.email);
 
     if (currentUser) {
-        document.querySelector("#user").innerText = `Name: ${currentUser.name}`;
-        document.querySelector("#userEmail").innerText = `Email: ${currentUser.email}`;
-        document.querySelector("#userPassword").innerText = `Password: ${currentUser.password}`;
+      document.querySelector("#user").innerText = `Name: ${currentUser.name}`;
+      document.querySelector("#userEmail").innerText = `Email: ${currentUser.email}`;
+      document.querySelector("#userPassword").innerText = `Password: ${currentUser.password}`;
     }
 
     if (billingData) {
-        document.querySelector("#userContact").innerText = `Contact No: ${billingData.contact}`;
-        document.querySelector("#userAddress").innerText = `Address: ${billingData.address}`;
-        document.querySelector("#pincode").innerText = `Pin Code: ${billingData.pincode}`;
+      document.querySelector("#userContact").innerText = `Contact No: ${billingData.contact}`;
+      document.querySelector("#userAddress").innerText = `Address: ${billingData.address}`;
+      document.querySelector("#pincode").innerText = `Pin Code: ${billingData.pincode}`;
     }
-}
-}
-
-userDisplay();
-
-function formUpdator(event) {
-  event.preventDefault();
-  let registerData = JSON.parse(localStorage.getItem("register"));
-  let billingData = JSON.parse(localStorage.getItem("billing"));
-
-  const inputName = document.querySelector("#inputName").value;
-  if (inputName) {
-    registerData.map((item) => {
-      item.name = inputName;
-    });
-    localStorage.setItem("register", JSON.stringify(registerData));
-    document.querySelector("#user").innerText = `Name: ${inputName}`;
   }
 }
+userDisplay();
 
-function UpdateDate() {
-  document.querySelector(".update").style.display = "block";
-  document.querySelector(".static").style.display = "none";
+function resetPassword() {
+  document.querySelector("#model").style.display = "block"
+  document.querySelector(".reset").style.display = "none"
 }
 
 
+function closebnt() {
+  document.getElementById("model").style.display = "none";
+  document.querySelector(".reset").style.display = "block"
+}
+
+let ispassword = false;
+
+function SavePassword(event) {
+  event.preventDefault();
+  let currentPassword = document.querySelector('#curruntPassword').value;
+  let newPassword = document.querySelector('#NewPassword').value;
+  let registerData = JSON.parse(localStorage.getItem("register"));
+  let logindata = JSON.parse(localStorage.getItem("login"));
+  if (!currentPassword || !newPassword) {
+    alert("Enter all details");
+    return;
+  }
+  passwordChecker()
+
+  let update = registerData.find((item) => item.password == logindata.password)
+  if (update.password == currentPassword) {
+    update.password = newPassword;
+  } else {
+    alert("password not match")
+    return
+  }
+  localStorage.setItem("register", JSON.stringify(registerData));
+  document.querySelector('#curruntPassword').value = ""
+  document.querySelector('#NewPassword').value = ""
+  document.querySelector("#model").style.display = "none"
+  document.querySelector(".reset").style.display = "block"
+  userDisplay()
+}
+
+function passwordChecker() {
+  let newPassword = document.querySelector('#NewPassword').value;
+  let passwordError = document.querySelector("#passwordError");
+  let regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,15}$/;
+  if (!regex.test(newPassword)) {
+    passwordError.innerText =
+      "Password must contain one digit from 1 to 9, one lowercase letter, one uppercase letter, one special character, no space, and it must be 8-15 characters long.";
+    ispassword = false;
+  } else {
+    passwordError.innerText = "";
+    ispassword = true;
+  }
+}

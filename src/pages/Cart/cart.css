@@ -218,6 +218,7 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
 .btn-close{
     background-color: #3577f0;

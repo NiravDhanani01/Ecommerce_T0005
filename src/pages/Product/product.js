@@ -1,7 +1,7 @@
 async function displayProducts(
   filterCat = null,
   sort = "default",
-  search = null
+  search = null 
 ) {
   try {
     let res = await fetch("../../public/js/data.json");
@@ -60,14 +60,10 @@ async function displayProducts(
   }
 }
 
-function categoryFilter(category) {
-  displayProducts(category);
-}
-
 async function addToCart(id) {
   try {
-    let res = await fetch("../../public/js/data.json");
-    let data = await res.json();
+    let response = await fetch("../../public/js/data.json");
+    let data = await response.json();
     let selectedData = data.find((item) => item.id === id);
     if (!selectedData) return;
 
@@ -82,54 +78,18 @@ async function addToCart(id) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cartData));
-    updateCartQty()
+
   } catch (err) {
     console.error("Failed to add to cart:", err.message);
   }
+  updateCartQty()
 }
 
-function checkUserStatus() {
-  let loginData = JSON.parse(localStorage.getItem("login"));
-
-  if (!loginData) {
-    document.querySelector("#logout").style.display = "none";
-    document.querySelector("#smalllogout").style.display = "none";
-  } else {
-    document.querySelector("#userName").innerText = `Welcome ${loginData.name}`;
-    document.querySelector(
-      "#smalluserName"
-    ).innerText = `Welcome ${loginData.name}`;
-    document.querySelector("#loginUser").style.display = "none";
-    document.querySelector("#smallloginUser").style.display = "none";
-  }
+function categoryFilter(category) {
+  displayProducts(category);
 }
 
-function GotoCart() {
-  let loginData = JSON.parse(localStorage.getItem("login"));
-
-  if (!loginData) {
-    alert("User Not Valid, First Sign in");
-    return;
-  } else {
-    location.href = "../Cart/cart.html";
-  }
-}
-
-function LogoutUser() {
-  localStorage.removeItem("login");
-  location.href = "../../../index.html";
-}
-
-function toggleNavBar() {
-  var SmallMenu = document.getElementById("smallMenu");
-  if (SmallMenu.classList.contains("showSmallMenu")) {
-    SmallMenu.classList.remove("showSmallMenu");
-  } else {
-    SmallMenu.classList.add("showSmallMenu");
-  }
-}
-
-function ClearFilter() {
+function clearFilter() {
   displayProducts();
 }
 
@@ -138,30 +98,9 @@ function sortProducts() {
   displayProducts(null, sort);
 }
 
-function SearchCategory() {
+function searchCategory() {
   let search = document.querySelector("#search").value;
   displayProducts(null, "default", search);
 }
 
-function updateCartQty(){
-  let cartData = JSON.parse(localStorage.getItem("cart"));
-  if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
-      document.querySelector("#updateQty").innerHTML = 0
-      document.querySelector("#smallupdateQty").innerHTML = 0
-  }else{
-      document.querySelector("#updateQty").innerHTML = cartData.length
-      document.querySelector("#smallupdateQty").innerHTML = cartData.length
-  }
-}
-updateCartQty()
-
-function GotoUserProfile(){
-  if(localStorage.getItem('login') == null || localStorage.getItem('login') == undefined){
-      alert("invalid User,login First")
-  } else{
-      location.href = "../profile/profile.html"
-  }
-}
-
 displayProducts();
-checkUserStatus();

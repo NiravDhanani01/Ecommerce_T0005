@@ -111,6 +111,10 @@
     border-radius: 10px;
 }
 
+.error{
+    margin: 5px 15px;
+}
+
 @media (max-width:1000px) {
     .contact-form {
         width: 100%;

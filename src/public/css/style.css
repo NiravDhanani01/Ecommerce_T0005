@@ -25,7 +25,10 @@ body {
 .flex-wrap {
     flex-wrap: wrap;
 }
-
+a{
+    text-decoration: none;
+    color: white;
+}
 .justify-center {
     justify-content: center;
 }

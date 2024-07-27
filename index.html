@@ -19,13 +19,13 @@
             <div class="container">
                 <nav class="navBar d-flex justify-between">
                     <div class="logoImg">
-                        <img src="./src/public/img/logo.png" alt="Logo">
+                        <img src="../../src/public/img/logo.png" alt="Logo">
                     </div>
                     <div class="navBarItems largeNav">
                         <ul type="none" class="d-flex justify-between">
                             <li><a href="../../../index.html">Home</a></li>
                             <li><a href="./src/pages/Product/product.html">Product</a></li>
-                            <li onclick="GotoCart()" class="cartnotification">Cart <i
+                            <li onclick="gotoCartPage()" class="cartnotification">Cart <i
                                     class="fa-solid fa-cart-shopping"></i>
                                 <div class="bedgis" id="updateQty"></div>
                             </li>
@@ -35,9 +35,9 @@
                                     <ul type="none">
                                         <li id="loginUser"><a href="./src/pages/login/login.html"><i
                                                     class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-                                        <li onclick="GotoUserProfile()" id="ResetPassword"><i
+                                        <li onclick="gotoUserProfile()" id="ResetPassword"><i
                                                 class="fa-solid fa-gear"></i> User Profile</li>
-                                        <li onclick="LogoutUser()" id="logout"><i
+                                        <li onclick="logoutUser()" id="logout"><i
                                                 class="fa-solid fa-right-from-bracket"></i> Logout</li>
                                     </ul>
                                 </div>
@@ -55,7 +55,7 @@
                     <ul type="none" class="d-flex flex-column">
                         <li><a href="#">Home</a></li>
                         <li><a href="./src/pages/Product/product.html">Product</a></li>
-                        <li onclick="GotoCart()" class="cartnotification">Cart <i class="fa-solid fa-cart-shopping"></i>
+                        <li onclick="gotoCartPage()" class="cartnotification">Cart <i class="fa-solid fa-cart-shopping"></i>
                             <div class="bedgis" id="smallupdateQty"></div>
                         </li>
                         <li><a href="./src/pages/Contact/contact.html">Contact</a> </li>
@@ -65,9 +65,9 @@
                                 <ul type="none">
                                     <li id="smallloginUser"><a href="./src/pages/login/"><i
                                                 class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-                                    <li onclick="GotoUserProfile()" id="ResetPassword"><i class="fa-solid fa-gear"></i>
+                                    <li onclick="gotoUserProfile()" id="ResetPassword"><i class="fa-solid fa-gear"></i>
                                         User Profile</li>
-                                    <li onclick="LogoutUser()" id="smalllogout"><i
+                                    <li onclick="logoutUser()" id="smalllogout"><i
                                             class="fa-solid fa-right-from-bracket"></i> Logout</li>
                                 </ul>
                             </div>
@@ -134,7 +134,7 @@
                 <div class="product-list d-flex flex-wrap justify-center wow animate__backInUp" data-wow-duration="2s" id="productCard">
                 </div>
                 <div class="d-flex justify-center">
-                    <button class="showBtn" onclick="GotoProduct()">show All product</button>
+                    <button class="showBtn"><a href="./src/pages/Product/product.html">show All product</a></button>
                 </div>
             </div>
         </div>
@@ -250,7 +250,8 @@
                             <ul type="none">
                                 <li class="page-link"><a href="#">Home</a></li>
                                 <li class="page-link"><a href="./src/pages/Product/product.html">Product</a></li>
-                                <li class="page-link" onclick="GotoCart()">Cart</li>
+                                <li class="page-link" onclick="gotoCart()">Cart</li>
+                                <li class="page-link"><a href="./src/pages/Contact/contact.html">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -280,6 +281,7 @@
         </div>
     </section>
 </body>
+
 <script src="./src/public/js/index.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script>

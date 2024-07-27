@@ -1,5 +1,4 @@
-
-async function DispalyProduct() {
+async function dispalyProduct() {
     try {
         let res = await fetch("./src/public/js/data.json");
         let data = await res.json()
@@ -19,7 +18,7 @@ async function DispalyProduct() {
                             <p class="cat">${item.category}</p>
                         </div>
                        <div class="d-flex justify-center">
-                            <button class="cartBtn" onclick="AddtoCart(${item.id})">Add To Cart</button>
+                            <button class="cartBtn" onclick="addtoCart(${item.id})">Add To Cart</button>
                        </div>
                     </div>
               </div>    
@@ -28,11 +27,9 @@ async function DispalyProduct() {
     } catch (err) {
         console.log(err.message);
     }
-    updateCartQty()
 }
-DispalyProduct()
 
-async function AddtoCart(id) {
+async function addtoCart(id) {
     try {
         let res = await fetch("./src/public/js/data.json");
         let data = await res.json()
@@ -40,7 +37,7 @@ async function AddtoCart(id) {
         let selectedData = data.find(item => item.id == id);
 
         if (!selectedData) return;
- 
+
         let cartData = JSON.parse(localStorage.getItem("cart")) || [];
         cartData.push(selectedData);
         localStorage.setItem('cart', JSON.stringify(cartData));
@@ -49,35 +46,35 @@ async function AddtoCart(id) {
     }
     updateCartQty()
 }
-function checkUserStatus() {
-    let loginData = JSON.parse(localStorage.getItem("login"));
-  
-    if (!loginData) {
-      document.querySelector("#logout").style.display = "none";
-      document.querySelector("#smalllogout").style.display = "none";
-    } else {
-      document.querySelector("#userName").innerText = `Welcome ${loginData.name}`;
-      document.querySelector(
-        "#smalluserName"
-      ).innerText = `Welcome ${loginData.name}`;
-      document.querySelector("#loginUser").style.display = "none";
-      document.querySelector("#smallloginUser").style.display = "none";
-    }
-  }
-checkUserStatus();
 
-function GotoCart(){
+function gotoCartPage() {
     let loginData = JSON.parse(localStorage.getItem("login"));
 
     if (!loginData) {
         alert("User Not Valid, First Sign in")
         return;
     } else {
-        location.href="./src/pages/Cart/cart.html";
+        location.href = "./src/pages/Cart/cart.html";
     }
 }
 
-function LogoutUser(){
+function checkUserStatus() {
+    let loginData = JSON.parse(localStorage.getItem("login"));
+
+    if (!loginData) {
+        document.querySelector("#logout").style.display = "none";
+        document.querySelector("#smalllogout").style.display = "none";
+    } else {
+        document.querySelector("#userName").innerText = `Welcome ${loginData.name}`;
+        document.querySelector(
+            "#smalluserName"
+        ).innerText = `Welcome ${loginData.name}`;
+        document.querySelector("#loginUser").style.display = "none";
+        document.querySelector("#smallloginUser").style.display = "none";
+    }
+}
+
+function logoutUser() {
     localStorage.removeItem("login")
     location.href = "./index.html"
 }
@@ -91,22 +88,25 @@ function toggleNavBar() {
     }
 }
 
-function updateCartQty(){
+function updateCartQty() {
     let cartData = JSON.parse(localStorage.getItem("cart"));
-    if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
+    if (localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined) {
         document.querySelector("#updateQty").innerHTML = 0
         document.querySelector("#smallupdateQty").innerHTML = 0
-    }else{
+    } else {
         document.querySelector("#updateQty").innerHTML = cartData.length
         document.querySelector("#smallupdateQty").innerHTML = cartData.length
     }
-  }
-  updateCartQty()
+}
 
-function GotoUserProfile(){
-    if(localStorage.getItem('login') == null || localStorage.getItem('login') == undefined){
+function gotoUserProfile() {
+    if (localStorage.getItem('login') == null || localStorage.getItem('login') == undefined) {
         alert("invalid User,login First")
-    } else{
+    } else {
         location.href = "./src/pages/profile/profile.html"
     }
 }
+
+dispalyProduct();
+checkUserStatus();
+updateCartQty();

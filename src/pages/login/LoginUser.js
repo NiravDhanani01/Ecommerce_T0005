@@ -34,3 +34,32 @@ function LoginUser(event) {
     document.querySelector("#email").value = "";
     document.querySelector("#password").value = "";
 }
+
+
+var googleUser = {};
+
+const startApp = () => {
+  gapi.load('auth2', function(){
+
+    auth2 = gapi.auth2.init({
+      client_id: `228616649849-c42i212n1ioc4ks2dg8djr8qad0tpru0.apps.googleusercontent.com`,
+      cookiepolicy: 'single_host_origin',
+      scope : ""
+  
+    });
+    attachSignin(document.getElementById('googleAuth_Btn'));
+  });
+};
+
+function attachSignin(element) {
+  console.log(element.id);
+  auth2.attachClickHandler(element, {},
+      function(googleUser) {
+        document.getElementById('name').innerText = "Signed in: " +
+            googleUser.getBasicProfile().getName();
+      }, function(error) {
+        alert(JSON.stringify(error, undefined, 2));
+      });
+}
+
+startApp()

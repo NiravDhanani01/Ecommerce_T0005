@@ -8,6 +8,7 @@
     <link rel="icon" href="../public/img/fevicon.png">
     <link rel="stylesheet" href="./login.css">
     <link rel="stylesheet" href="../../public/css/style.css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
 </head>
 
 <body>
@@ -42,6 +43,13 @@
                             <p class="text-center forgot"><a href="../Forgot/forgot.html"
                                     class="forgot">Forgot Password ?</a> </p>
                         </form>
+                        <div >
+                            <p class="text-center">Or</p>
+                            <div id="googleAuth_Btn">
+                                <p id="name"></p>
+                                <button>Google Auth</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,6 +60,8 @@
 
 <script src="./LoginUser.js"></script>
 <script src="../Component/navigation_auth.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 
 </html>
 
